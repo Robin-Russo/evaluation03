@@ -2,44 +2,46 @@ Evaluation 03 - Développement Plugin wordpress
 
 1- Pourquoi paramétrer un utilisateur evaluation03 pour accéder à la base de donnée
 au lieu d'utiliser l'utilisateur 'root'?
-réponse:
+réponse: Ainsi l'utilisateur evaluation03 n'aura accès qu'à la BDD liée au WordPress, et pas à toutes les autres en plus comme ce serait le cas si on utilisait l'utilisateur root.
 
 2- Pour améliorer la sécurité de la base de donnée quels autres paramétrages de l'utilisateur
 pouvez vous utiliser?
-réponse:
+réponse: 
 
-3- Qu'est-ce qu'un virtualhost dans apache?
-réponse:
+3- Qu'est-ce qu'un virtualhost dans apache ?
+réponse: Un virtualhost permet d'héberger de manière locale ou virtuelle un ou plusieurs sites web afin de travailler ou d'expérimenter avant la mise en ligne finale sur OVH ou d'autres services d'hébergement.
 
 4- A quoi sert un thème enfant ? Quelle est son utilité quand on fait une mise à jour de wordpress ?
-réponse:
+réponse: Un thème enfant sert à effectuer des modifications/ajouter des fonctions au thème sans craindre qu'elles soient écrasées par une mise à jour, qui sont faites sur le thème-parent. Le thème-enfant est un héritage du thème-parent, auquel il supplante ses propres modifications.
 
 5- Que signifie i18n ? A quoi sert la fonction __( 'Hello world', 'my-text-domain' ); ?
-réponse:
+réponse: C'est l'abréaviation de "Internationnalisation" qui est une fonctionnalité qui permet d'inclure plusieurs langues dans l'interface.
 
 6- Dans un thème à quoi sert le fichier 404.php ? page.php ?
-réponse:
+réponse: En cas d’erreur 404 (page non trouvée), WordPress va chercher dans le thème un fichier nommé 404.php pour afficher du contenu inscrit en dur et dire que la page n'existe pas/n'est pas accessible justement. 
+Pour page.pgp c’est le template standard utilisé par WordPress pour afficher les pages statiques.
 
 7- Qu'est ce qu'un "custom post type" ?
-réponse:
+réponse: Un custom post type vous permet de créer un nouveau type de contenu sur mesure pour votre site. Un type de contenu qui ne convient ni aux pages ni aux articles.
 
 8- Qu'est ce qu'un "custom field" ?
-réponse:
+réponse: Un "custom field" ou champ personnalisé permet d'ajouter des "blocs" contenant les informations voulues auquelles ont peut appliquer des fonctions.
 
 12- Quelles sont les principales fonctions de l'API wordpress ?
-réponse:
+réponse: L'API de WordPress de type REST (ajoutée à la 4.7) permet de concevoir des scripts qui pourront s’authentifier sur WordPress pour y créer, modifier, supprimer ou récupérer des contenus dans le but d’automatiser des actions.
 
 13- Est-ce que l'API wordpress permet de modifier le site web ? quid de la sécurité ?
-réponse:
+réponse: Oui elle permet d'effectuer des modifications ou des mises à jour. Cette manière de faire est sécurisée car l'API REST s'identifie au Wordpress.
 
 14- Qu'est ce que la wordpress loop ?
-réponse:
+réponse: La WordPress loop est présente dans la plupart des templates qui constituent notre thème, puisque c’est grâce à elle qu’il est possible d’afficher dynamiquement le contenu récupéré dans la base de données. Elle est personnalisable, ce qui nous permet d’afficher ce que l’on souhaite à des endroits bien précis dans notre thème.
 
 15- Quelles sont les fonctions principales du plugin reservation-evenements ?
-réponse:
+réponse: Le plugin reservation-evenements permet d'effectuer des réservations à partir des champs personnalisés des divers événements programmés, et ainsi de s'inscrire à des dates précises. Les emails des utilisateurs qui s'inscrivent son récupérés pour les référencer.
 
 16- A quoi sert la fonction wp_nonce_field() ?
-réponse:
+réponse: Cette fonction sert à valider que les requêtes proviennent bien du site actuel et pas d'un autre site.
 
 17- Comment sont stockées les réservations ?
-réponse:
+réponse: Elles sont stockées dans un fichier json grâce à cette ligne de code :
+' update_post_meta( $_POST['id-evenement'], 'reservations-evenement', json_encode($aListeReservation) ); '
